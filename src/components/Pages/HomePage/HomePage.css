@@ -1,0 +1,79 @@
+ .container{
+  background: rgb(134,71,251);
+background: linear-gradient(16deg, rgba(134,71,251,1) 33%, rgba(179,102,252,1) 58%);
+color:white;
+ }
+
+ .sections{
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ }
+ .heroSection{
+  padding: 20px;
+  border:1px solid red;
+  width:100vw;
+ }
+ .heroSection.searchPerformed {
+  width: calc(100% - 20px);
+ }
+.font1{
+  text-align: center;
+  font-size: 30px;
+  padding-top: 20px;
+}
+.font1 span{
+  display: inline-block;
+  background-color: #FFAF45;
+  border: 1px solid #FFAF45;
+  width:35px;
+  border-radius: 5px;
+  padding: 1px;
+  transform: translateY(-6px);
+  
+}
+.typewriter{
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  padding: 20px;
+  height:70px;
+  @media screen and (max-width:480px){
+    height:120px;
+  }
+}
+.font2{
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+.searchbar {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+
+  max-width: 300px;
+  min-width: 100px;
+  margin: 0px auto;
+  margin-top: 20px;
+  background-color: white;
+ 
+}
+.searchbar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 18px;
+  @media screen and (max-width:480px){
+   font-size: 14px;
+   width:60%;
+  }
+} 
+
+.ClimateCard{
+ 
+  border:1px solid red;
+}
+
