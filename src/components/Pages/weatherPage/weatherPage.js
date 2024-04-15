@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./weatherPage.css";
+import Footer from "../../Footer/Footer";
 import { useSnackbar } from "notistack";
 import axios from "axios";
 import Day from "../../../data/nature-4117_256.gif";
@@ -127,14 +128,14 @@ const WeatherPage = () => {
       </div>
     );
   })}
+   <div className="buttonContainer">
+  <button disabled={selectedDateIndex <= 0} onClick={handlePreviousDayClick}>Previous day</button>
+  <button disabled={selectedDateIndex >= 4} onClick={handleNextDayClick}>Next day</button>
+  </div>
 </div>
 
 
 
-  <div className="buttonContainer">
-  <button disabled={selectedDateIndex <= 0} onClick={handlePreviousDayClick}>Previous day</button>
-  <button disabled={selectedDateIndex >= 4} onClick={handleNextDayClick}>Next day</button>
-  </div>
  
 </div>
 
@@ -146,6 +147,7 @@ const WeatherPage = () => {
   
     </div>
     <RecentSearchCities handleRecentCityClick={handleRecentCityClick}/>
+    <Footer/>
     </>
   );
 };

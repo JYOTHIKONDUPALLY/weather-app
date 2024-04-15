@@ -7,6 +7,7 @@ import RecentSearchCities from '../../RecentSearchCities/RecentSearchCities';
 import Searchbar from '../../Searchbar/Searchbar';
 import { useWeather } from '../../../contexts/WeatherContext';
 import "./HomePage.css";
+import Footer from '../../Footer/Footer';
 import { updateRecentCities } from "../../../utils";
 const HomePage = () => {
   const [searchPerformed, setSearchPerformed] = useState(false);
@@ -62,6 +63,7 @@ const HomePage = () => {
         <div className="ClimateSection">{searchPerformed && cityData&& <ClimateCard city={cityData} />}</div>
       </div>
       <RecentSearchCities handleRecentCityClick={handleRecentCityClick} />
+      <Footer/>
     </div>
   );
 };

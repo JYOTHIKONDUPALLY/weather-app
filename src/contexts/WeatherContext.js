@@ -1,7 +1,7 @@
 // WeatherContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-
+import {useSnackbar} from "notistack";
 const WeatherContext = createContext();
 
 export const useWeather = () => useContext(WeatherContext);
@@ -10,7 +10,7 @@ export const WeatherProvider = ({ children }) => {
   const [tabularData, setTabularData] = useState([]);
   const [cityData, setCityData] = useState(null);
   const [climateData, setClimateData] = useState(null);
-
+  const { enqueueSnackbar } = useSnackbar();
   useEffect(() => {
     fetchTabularData();
   }, []);
@@ -18,18 +18,16 @@ export const WeatherProvider = ({ children }) => {
   const fetchTabularData = async () => {
     try {
       const response = await axios.get(
-        'https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/geonames-all-cities-with-a-population-1000/records?limit=50'
+        'https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/geonames-all-cities-with-a-population-1000/records?limit=100'
       );
       setTabularData(response.data.results);
       return tabularData;
     } catch (error) {
-      console.error('Error fetching tabular data:', error);
+      enqueueSnackbar("sorry! unable to fetch data", {variant:"error"})
     }
   };
 
-  const storeTabularData = (newData) => {
-    setTabularData((prevData) => [...prevData, ...newData]);
-  };
+  
   const fetchCityData = async (searchValue) => {
     try {
       const response = await axios.get(
@@ -37,7 +35,7 @@ export const WeatherProvider = ({ children }) => {
       );
       setCityData(response.data);
     } catch (error) {
-      console.error('Error fetching city data:', error);
+      enqueueSnackbar("sorry! unable to fetch data", {variant:"error"})
     }
   };
 
@@ -48,13 +46,13 @@ export const WeatherProvider = ({ children }) => {
       );
       setClimateData(response.data);
     } catch (error) {
-      console.error('Error fetching climate data:', error);
+      enqueueSnackbar("sorry! unable to fetch data", {variant:"error"})
     }
   };
 
   return (
     <WeatherContext.Provider
-      value={{ tabularData, cityData, climateData, fetchTabularData, fetchCityData, fetchClimateData, storeTabularData }}
+      value={{ tabularData, cityData, climateData, fetchTabularData, fetchCityData, fetchClimateData, }}
     >
       {children}
     </WeatherContext.Provider>

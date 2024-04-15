@@ -35,13 +35,20 @@ const FilterSection = ({ tabularData, onApplyFilters, onResetFilters}) => {
     };
 
     const resetFilters = () => {
-        // Reset selected filters and set filtered data to entire tabular data
+        // Reset selected filters to empty arrays
         setSelectedTimezones([]);
         setSelectedCountries([]);
         setSelectedPopulations([]);
+        
+        // Reset select input values to default
+        const selectElements = document.querySelectorAll('select');
+        selectElements.forEach(select => {
+            select.selectedIndex = 0;
+        });
+    
+        // Call the onResetFilters callback to reset the filtered data
         onResetFilters();
     };
-
     const getPopulationRange = (population) => {
         if (population <= 100) {
             return "0-100";

@@ -1,101 +1,99 @@
-.headerContainer{
+.headerContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #333;
     padding: 10px 20px;
     position: sticky;
-    top:0;
+    top: 0;
     z-index: 9999;
-
 }
 
-.logo{
+.logo {
     font-size: 30px;
-    color:white;
+    color: white;
     font-weight: 600;
     display: flex;
     align-items: center;
 }
 
-.nav  {
-list-style: none;
-display: flex;
-align-items: center;
-font-size: 18px;
-font-weight: 500;
+.nav {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
 }
+
 .nav li {
     margin-right: 20px;
 }
-.nav li a{
+
+.nav li a {
     text-decoration: none;
     color: white;
-   
 }
 
-.nav li a:hover{
-    color:#FFAF45;
+.nav li a:hover {
+    color: #ffaf45;
     transition: color 0.3s ease;
 }
 
-.mobileNavToggle{
+.mobileNavToggle {
     display: none;
 }
 
-@media screen and (max-width:980px){
-    .nav{
+.nav li a.active {
+    color: orange;
+}
+
+@media screen and (max-width: 980px) {
+    .nav {
         display: none;
     }
-    .mobileNavToggle{
+
+    .mobileNavToggle {
         display: block;
-      
     }
-    .mobileNavToggle ul{
+
+    .mobileNavToggle ul {
         position: absolute;
-        top:10px;
-        right:5px;
+        top: 10px;
+        right: 5px;
         z-index: 1000;
         overflow: hidden;
         transition: max-height 0.3s ease;
         display: flex;
         flex-direction: column;
-        align-items: start; 
-        background-color: #FFAF45;
+        align-items: start;
+        background-color: #ffaf45;
         padding: 0 10px 0 0;
         list-style: none;
-        height:fit-content
+        height: fit-content;
+    }
 
+    .mobileNavToggle ul li {
+        padding: 10px;
     }
-    .mobileNavToggle ul li{
-      padding: 10px;
-      
-    }
-    .mobileNavToggle ul li a{
+
+    .mobileNavToggle ul li a {
         text-decoration: none;
         width: 100%;
     }
-    .mobileNavToggle ul li a:hover{
-       background-color: blueviolet;
+
+    .mobileNavToggle ul li a:hover {
+        background-color: blueviolet;
     }
-    
-    .navToggleBtn{
+
+    .navToggleBtn {
         font-size: 2rem;
         background: transparent;
         border: none;
         cursor: pointer;
         color: white;
+    }
 
+    .nav li a.active {
+        color: black;
     }
 }
-
-
-
-  
-
-
-
- 
-
-  
-  

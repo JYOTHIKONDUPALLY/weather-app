@@ -116,6 +116,7 @@ const LazyLoadingGrid = () => {
                 </table>
                 {loading && <div>Loading...</div>}
             </div>
+          
         </div>
     );
 };

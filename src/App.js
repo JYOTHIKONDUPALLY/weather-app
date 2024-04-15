@@ -10,7 +10,7 @@ import './App.css';
 const App = () => {
   return (
     <BrowserRouter>
-      <SnackbarProvider anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+      <SnackbarProvider anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
         <WeatherProvider>
           <Routes>
             <Route path="/" element={<HomePage />} />
