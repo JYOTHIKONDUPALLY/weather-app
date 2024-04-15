@@ -1,0 +1,52 @@
+
+  .search-container{
+    display: flex;
+    flex-direction: column;
+   width:fit-content;
+   margin: 0px auto;
+  }
+  .searchbar {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+    max-width: 300px;
+    min-width: 100px;
+   
+    margin-top: 20px;
+    background-color: white;
+   
+  }
+  .searchbar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 18px;
+    @media screen and (max-width:480px){
+     font-size: 14px;
+     width:60%;
+    }
+  } 
+  .dropdown{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    color:black;
+    width:100%;
+    margin: 0 auto;
+  }
+  .dropdown:empty{
+    border:none;
+  }
+  .dropdown-row{
+    cursor: pointer;
+    text-align: start;
+    margin: 2px 0;
+    padding-left: 10px;
+  }
+  .dropdown-row:hover{
+color:orange;
+  }

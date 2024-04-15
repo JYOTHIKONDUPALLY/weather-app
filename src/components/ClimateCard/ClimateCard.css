@@ -1,3 +1,55 @@
 .ClimateCardConatiner{
-    
+    padding: 30px;
+
+}
+.card{
+    max-width:400px;
+    width:100%;
+    height:400px;
+    border-radius:10px;
+    position: relative;
+    text-align: center;
+    margin: auto;
+    position: relative;
+}
+.card>*{
+    margin-bottom: 10px;
+}
+.card>img{
+ width: 100%;
+ height: 100%;
+ filter: brightness(50%);
+ border-radius:10px;
+
+}
+.text{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+.DateTime{
+    position: absolute;
+    left:10px;
+    top:10px;
+}
+.font{
+    font-size: 30px;
+    margin: 50px auto 0;
+}
+
+.button{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #FFAF45;
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.button:hover{
+color:black;
+cursor: pointer;
 }

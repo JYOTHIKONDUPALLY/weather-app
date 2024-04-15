@@ -1,0 +1,27 @@
+.filterSection{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    /* border:1px solid orange; */
+    width:fit-content;
+    height: auto;
+    padding: 20px;
+}
+.Resetbutton, .applyButton{
+    padding:5px 10px;
+    background-color: orange;
+    color:white;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.Resetbutton:hover, .applyButton:hover{
+    cursor: pointer;
+    color: black;
+}
+.filterbutton{
+    padding:5px 10px;
+    background-color: orange;
+    color:white;
+    border-radius: 10px;
+}

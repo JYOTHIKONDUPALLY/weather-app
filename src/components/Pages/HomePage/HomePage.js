@@ -1,80 +1,69 @@
-import React, { useState } from "react";
-import { useSnackbar } from "notistack";
+import React, { useState } from 'react';
+import { useSnackbar } from 'notistack';
+import Header from '../../Header/Header';
+import Typewriter from 'typewriter-effect';
+import ClimateCard from '../../ClimateCard/ClimateCard';
+import RecentSearchCities from '../../RecentSearchCities/RecentSearchCities';
+import Searchbar from '../../Searchbar/Searchbar';
+import { useWeather } from '../../../contexts/WeatherContext';
 import "./HomePage.css";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { FaArrowRight } from "react-icons/fa";
-import axios from "axios";
-import Header from "../../Header/Header";
-import Typewriter from "typewriter-effect";
-import { Link, useNavigate } from "react-router-dom";
-import WeatherPage from "../weatherPage/weatherPage";
-import ClimateCard from "../../ClimateCard/ClimateCard";
-
+import { updateRecentCities } from "../../../utils";
 const HomePage = () => {
-    const [searchValue, setSearchValue] = useState("");
-    const [searchPerformed, setSearchPerformed] = useState(false);
-    const [cityData, setCityData]=useState(null)
-    const { enqueueSnackbar } = useSnackbar();
-    const navigate = useNavigate();
+  const [searchPerformed, setSearchPerformed] = useState(false);
+  const { cityData, fetchCityData,fetchTabularData, tabularData} = useWeather(); // Destructure tabularData from the context
+  const { enqueueSnackbar } = useSnackbar();
+  
+  const handleSearch = async(searchValue) => {
+    setSearchPerformed(true);
+    fetchCityData(searchValue);
+    updateRecentCities(searchValue)
+    // const response = await fetchTabularData(1, searchValue); // Fetch tabular data with search value
+    //     setTabularData(response);
+  };
 
-    const handleInputValue = (e) => {
-        const data = e.target.value;
-        setSearchValue(data);
+ 
+  const handleRecentCityClick = (cityName) => {
+    setSearchPerformed(true);
+    fetchCityData(cityName);
+    const climateSection = document.querySelector(".ClimateSection");
+    if (climateSection) {
+      const targetScrollPosition = climateSection.offsetTop - 100; // Adjust the value as needed
+      window.scrollTo({
+        top: targetScrollPosition,
+        behavior: "smooth"
+      });
     }
+  };
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=26ab58e31f69faf08beb94258744cbd0`);
-            const citydata = response.data;
-            console.log("City data:", cityData);
-            setCityData(citydata);
-            setSearchPerformed(true);
-            // navigate("/weather", { state: { city: cityData } });
-        } catch (err) {
-            enqueueSnackbar("No city found", { variant: "error" });
-        }
-    }
-
-    return (
-        <div className="container">
-            <Header/>
-        <div className="sections">
-        <div className={`heroSection ${searchPerformed ? "searchPerformed" : ""}`}>
-            <h1 className="font1">
-              <span></span> Weather & ForeCast
-            </h1>
-            <div className="typewriter">
-              <Typewriter
-                options={{
-                  strings: "Check out today's weather",
-                  autoStart: true,
-                  loop: true
-                }}
-              />
-            </div>
-            <p className="font2">
-              Stay ahead of the weather game, check out our forecasts today! From
-              sunshine to showers, we've got you covered.
-            </p>
-            <div className="searchbar">
-              <FaMapMarkerAlt color="black" size={"20px"} />
-              <input
-                type="text"
-                value={searchValue}
-                placeholder="Enter City"
-                onChange={handleInputValue}
-              />
-              <FaArrowRight onClick={fetchData} size={"20px"} color="black" />
-            </div>
+  return (
+    <div className="container">
+      <Header />
+      <div className="sections">
+        <div className={`heroSection ${searchPerformed ? 'searchPerformed' : ''}`}>
+          <h1 className="font1">
+            <span></span> Weather & ForeCast
+          </h1>
+          <div className="typewriter">
+            <Typewriter
+              options={{
+                strings: "Check out today's weather",
+                autoStart: true,
+                loop: true,
+              }}
+            />
           </div>
-          <div className="ClimateSection">
-            {searchPerformed && <div><ClimateCard city={cityData}/></div>}
-          </div>
+          <p className="font2">
+            Stay ahead of the weather game, check out our forecasts today! From sunshine to showers, we've got you
+            covered.
+          </p>
+        
+          <Searchbar onSearch={handleSearch} tabularData={tabularData}/>
         </div>
-         
-         
-        </div>
-      );
+        <div className="ClimateSection">{searchPerformed && cityData&& <ClimateCard city={cityData} />}</div>
+      </div>
+      <RecentSearchCities handleRecentCityClick={handleRecentCityClick} />
+    </div>
+  );
 };
 
 export default HomePage;
