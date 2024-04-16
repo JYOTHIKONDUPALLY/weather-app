@@ -18,8 +18,6 @@ const HomePage = () => {
     setSearchPerformed(true);
     fetchCityData(searchValue);
     updateRecentCities(searchValue)
-    // const response = await fetchTabularData(1, searchValue); // Fetch tabular data with search value
-    //     setTabularData(response);
   };
 
  

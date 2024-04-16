@@ -129,29 +129,6 @@ opacity: 0.5;
   background-size: cover;
 }
 
-
-/* .tempCard{
-  border:1px solid red;
-  display: flex;
-  flex-wrap: wrap;
-  
-}
-.section2 div {
-  font-weight: 600;
-  width:100%;
-  max-width: 150px;
-  border-radius: 10px;
-  padding: 10px;
-  line-height: 30px;
-  background-image: url("../../../data/rain-4559068.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
-}
-.section2 h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-} */
 @media (max-width: 980px) {
   section {
     display: block;

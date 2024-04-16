@@ -58,7 +58,7 @@ const WeatherPage = () => {
   const filterNextDateData = () => {
     if (!climateData || !climateData.list) return []; // Check if climateData is null or list is null
     const nextDate = new Date();
-    nextDate.setDate(nextDate.getDate()+ selectedDateIndex  + 1); // Get next date
+    nextDate.setDate(nextDate.getDate()+ selectedDateIndex ); // Get next date
     const nextDateString = nextDate.toISOString().split("T")[0]; 
     
     return climateData.list.filter(data => {
@@ -73,7 +73,7 @@ const WeatherPage = () => {
     <div id="weatherContainer">
    
       <h1 className="font1" style={{ fontSize: "40px" }}>
-        Today Hourly Weather
+         Hourly Weather Data
       </h1>
       <p className="font2">
         A change in the weather is sufficient to recreate the world and
@@ -81,7 +81,7 @@ const WeatherPage = () => {
       </p>
       {cityData && (
         <>
-          <h2>{cityData.name}</h2>
+          <h2 className="font1">{cityData.name}</h2>
           <section>
             <div className="section1">
               <div className="time-section">
@@ -128,19 +128,16 @@ const WeatherPage = () => {
       </div>
     );
   })}
-   <div className="buttonContainer">
+  
+</div>
+<div className="buttonContainer">
   <button disabled={selectedDateIndex <= 0} onClick={handlePreviousDayClick}>Previous day</button>
   <button disabled={selectedDateIndex >= 4} onClick={handleNextDayClick}>Next day</button>
   </div>
-</div>
-
-
-
- 
-</div>
-
            
-          
+         
+</div>
+ 
           </section>
         </>
       )}

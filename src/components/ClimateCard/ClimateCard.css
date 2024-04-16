@@ -11,6 +11,9 @@
     text-align: center;
     margin: auto;
     position: relative;
+    background-image: url(../../data/nature-4117_256.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .card>*{
     margin-bottom: 10px;
