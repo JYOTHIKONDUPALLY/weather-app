@@ -27,7 +27,7 @@ const Searchbar = ({ onSearch }) => {
   return (
     <div className="search-container">
       <div className="searchbar">
-        <FaMapMarkerAlt color="black" size={'20px'} />
+        <FaMapMarkerAlt className="icon" />
         <input
           type="text"
           value={searchValue}
@@ -35,7 +35,7 @@ const Searchbar = ({ onSearch }) => {
           onChange={handleInputValue}
           onKeyDown={handleKeyDown}
         />
-        <FaArrowRight size={'20px'} color="black" onClick={() => onSearch(searchValue)} />
+        <FaArrowRight className="icon" onClick={() => onSearch(searchValue)} />
       </div>
       {searchOptions.length > 0 && (
         <div className="dropdown">

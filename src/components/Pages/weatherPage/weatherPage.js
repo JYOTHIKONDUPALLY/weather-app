@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./weatherPage.css";
-import Footer from "../../Footer/Footer";
 import { useSnackbar } from "notistack";
 import axios from "axios";
 import Day from "../../../data/nature-4117_256.gif";
@@ -144,7 +143,6 @@ const WeatherPage = () => {
   
     </div>
     <RecentSearchCities handleRecentCityClick={handleRecentCityClick}/>
-    <Footer/>
     </>
   );
 };

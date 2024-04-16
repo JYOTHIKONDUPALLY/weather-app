@@ -11,7 +11,7 @@ text-align: center;
   }
   @media (max-width: 768px) {
     .sections {
-      display: block; /* Change to block layout when viewport is 576px or less */
+      display: block; 
     }
   }
  .heroSection{
@@ -36,16 +36,7 @@ text-align: center;
   transform: translateY(-6px);
   
 }
-.typewriter{
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 600;
-  padding: 20px;
-  height:70px;
-  @media screen and (max-width:480px){
-    height:150px;
-  }
-}
+
 .font2{
   font-size: 20px;
   font-weight: 500;
